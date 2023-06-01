@@ -1,1 +1,1 @@
-# radiomics
+# Radiomics in Python (pyradiomics)
