@@ -11,6 +11,8 @@ extractor = RadiomicsFeatureExtractor()
 settings = extractor.settings 
 for key in settings:
     print( key, ' : ', extractor.settings[key] )
+
+# Features management ------------------------------------------------
 print(extractor.featureClassNames)
 print (extractor.enabledFeatures)
 
@@ -20,6 +22,15 @@ extractor.disableAllFeatures()
 extractor.enableFeatureClassByName('firstorder')
 extractor.enableFeatureClassByName('glcm')
 extractor.enableFeatureClassByName('shape2D')
+
+# Filtering Management ------------- Behzad Amanpour ----------------
+
+extractor.enableImageTypeByName('Wavelet')
+print(extractor.enabledImagetypes)
+
+extractor2 = RadiomicsFeatureExtractor(sigma=[1, 3])  # level=2
+extractor2.enableAllImageTypes()
+print(extractor2.enabledImagetypes)
 
 # Loading Image ------------------ Behzad Amanpour --------------------
 # the image is medical & 2D (dicom format), the mask format in png-----
@@ -45,6 +56,7 @@ fig_show (image, mask)
 # Feature Extraction --------- Behzad Amanpour --------------------
 #from SimpleITK import GetImageFromArray
 result = extractor.execute( GetImageFromArray(image), GetImageFromArray(mask) )
+result2 = extractor2.execute( GetImageFromArray(image), GetImageFromArray(mask) )
 
 # Making Data Frame ------------- Behzad Amanpour -----------------
 import pandas as pd 
