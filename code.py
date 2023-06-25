@@ -24,7 +24,6 @@ extractor.enableFeatureClassByName('glcm')
 extractor.enableFeatureClassByName('shape2D')
 
 # Filtering Management ------------- Behzad Amanpour ----------------
-
 extractor.enableImageTypeByName('Wavelet')
 print(extractor.enabledImagetypes)
 
